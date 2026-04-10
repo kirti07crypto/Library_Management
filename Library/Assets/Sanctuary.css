@@ -1,0 +1,275 @@
+﻿/* Color Palette */
+:root {
+    /* New Airy Palette */
+    --bg-light: #efe1c2;
+    --accent-soft: #ebedee;
+    --nook-purple: #a18cd1; /* Soft Lavender */
+    --nook-pink: #fbc2eb; /* Soft Pink */
+    --text-dark: #2d3436;
+    --glass-white: rgba(255, 255, 255, 0.8);
+}
+
+body {
+    background: linear-gradient(120deg, #efe1c2 0%, #ebedee 100%);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents the horizontal scroll */
+    width: 100vw;
+}
+
+/* Bigger, More "Comfortable" Textboxes */
+.form-control {
+    padding: 15px; /* More breathing room */
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    font-size: 1rem;
+    transition: 0.3s;
+    box-sizing: border-box; /* Prevents box from jumping out of bounds */
+    max-width: 100%;
+    margin-bottom: 8px;
+  
+}
+
+    .form-control:focus {
+        border-color: var(--nook-purple);
+        box-shadow: 0 0 10px rgba(161, 140, 209, 0.2);
+        outline: none;
+    }
+
+
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar h2 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        background: linear-gradient(to right, #8e2de2, #f0f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+    .nav-links a:hover {
+        background: var(--glass);
+        color: white;
+        transform: translateX(5px);
+        box-shadow: 0 4px 15px rgba(142, 45, 226, 0.2);
+    }
+
+
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 20px 40px 40px 40px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* This spreads the content out so the quote stays at the bottom */
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(220px, auto); /* Keeps them all same height */
+    margin-top: 20px;
+}
+  
+
+.btn-primary {
+   
+    background: linear-gradient(45deg, var(--nook-purple), var(--nook-pink)) !important;   
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .btn-primary:hover {
+        filter: brightness(1.2);
+        box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+    }
+.form-control:focus {
+    border: 2px solid var(--nook-pink) !important;
+    background-color: #fff;
+}
+.glass-card {
+    min-height: 220px; /* Give them some height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    padding: 20px;
+    min-width: 0; 
+    word-wrap: break-word;
+    
+}
+
+    
+.auth-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Use full viewport width */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0 !important; /* Force remove the 260px sidebar gap */
+    padding: 0;
+    z-index: 1000; /* Ensure it sits on top of everything */
+}
+
+.auth-card {
+    width: 450px;
+    text-align: center;
+}
+
+    /* Let the variables do the heavy lifting */
+    .auth-card h2 {
+        color: var(--nook-purple); /* Changed from accent-purple */
+    }
+
+.subtitle {
+    color: var(--text-dark);
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.footer-text a {
+    color: var(--nook-purple);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.error-msg {
+    color: #ff4d4d;
+    display: block;
+    margin-top: 10px;
+}
+.logout-link {
+    color: var(--nook-pink) !important;
+    font-weight: bold;
+    margin-top: auto;
+}
+.dashboard-quote {
+    width: 100%; 
+    text-align: center; 
+    margin-top: 50px;
+    padding: 20px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    margin-right: 20px;
+}
+
+    .dashboard-quote p {
+        font-style: italic;
+        color: #636e72;
+        max-width: 600px; 
+    }
+.dashboard-quote::before, .dashboard-quote::after {
+        content: "";
+        display: inline-block;
+        width: 50px;
+        height: 1px;
+        background: var(--nook-pink);
+        vertical-align: middle;
+        margin: 0 20px;
+    }
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(161, 140, 209, 0.3);
+}
+
+.cat-pill {
+    padding: 8px 15px;
+    border: 1px solid #a18cd1;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #a18cd1;
+    margin: 0 5px;
+}
+
+    .cat-pill:hover, .mood-pill.active {
+        background: #a18cd1;
+        color: white;
+    }
+.search-bar {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(161, 140, 209, 0.3);
+    transition: all 0.3s ease;
+}
+
+    .search-bar:focus {
+        width: 400px !important; 
+        border-color: #a18cd1;
+        outline: none;
+    }

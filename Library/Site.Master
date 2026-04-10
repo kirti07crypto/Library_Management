@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Library_Nook.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<link href="Assets/Sanctuary.css" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/reading.png">
+    <title>Ink and Imagination</title>
+   
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <asp:Panel ID="SidebarPanel" runat="server">
+            <div class="sidebar">
+                <h2>Ink and Imagination</h2>
+                <div class="nav-links">
+                    <a href='<%= ResolveUrl("~/Assets/Default.aspx") %>'>🏠 Sanctuary</a>
+                    <asp:Panel ID="AdminPanel" runat="server">
+                        <a href="Dashboard.aspx">📊 Dashboard</a>
+                        <a href="ManageBooks.aspx">📚 Collection</a>
+                        <a href="IssueDesk.aspx">⚖️ Issue Desk</a>
+                        <a href="User.aspx">🙍 Users</a>
+                    </asp:Panel>
+               <a href='<%= ResolveUrl("~/Assets/Login.aspx") %>' style="margin-top:50px; color: darkred; font-weight:bold;">Logout</a>            
+
+                </div>
+                
+<div class="dashboard-quote">
+    <p>"A reader lives a thousand lives before he dies. The man who never reads lives only one."</p>
+    <span style="color: #a18cd1; font-weight: bold; margin-top: 10px;">— George R.R. Martin</span>
+</div>
+        </asp:Panel>
+        
+        <div id="MainContentDiv" runat="server" class="main-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script>
+    // Highlight active link
+    const currentPath = window.location.pathname.split("/").pop();
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href').includes(currentPath)) {
+            link.style.background = 'var(--nook-purple)';
+            link.style.color = 'white';
+            link.style.borderRadius = '10px';
+        }
+    });
+    </script>
+</body>
+</html>
